@@ -1,0 +1,13 @@
+mdl = 'ConfiguredVirtualVehicleModel';
+open_system(mdl);
+multiSimMgr = MultiSim.internal.MultiSimManager.getMultiSimManager();
+simout = parsim(in, 'ShowSimulationManager', 'on');
+jobViewer = multiSimMgr.WindowList(end);
+job = jobViewer.Job;
+figMgr = job.FigureManager;
+figMgr.FigureObjects(1).Title = "TestID vs StopTime";
+figMgr.FigureObjects(1).XData = "StopTime";
+figMgr.FigureObjects(1).XLabel = "StopTime";
+figMgr.FigureObjects(1).YData = "TestID";
+figMgr.FigureObjects(1).YLabel = "TestID";
+save('simout.mat','simout','-v7.3');
